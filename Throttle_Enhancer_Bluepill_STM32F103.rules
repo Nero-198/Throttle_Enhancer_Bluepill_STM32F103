@@ -1,0 +1,80 @@
+
+(rules PCB Throttle_Enhancer_Bluepill_STM32F103
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (eu.mihosoft.freerouting.autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 5)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 4.3)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.3)
+    )
+  )
+  (rule
+    (width 200.0)
+    (clear 200.0)
+    (clear 100.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_600:300_um"
+    (shape
+      (circle F.Cu 600.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 600.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_600:300_um" "Via[0-1]_600:300_um" default
+  )
+  (via 
+    "Via[0-1]_600:300_um-kicad_default" "Via[0-1]_600:300_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_600:300_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_600:300_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "TDC1_PUSH" "TDC1_Y" +3.3V "TDC1_X" GND "TDC2_PUSH" "TDC2_Y" "TDC2_X"
+    "TDC_Caribration" "unconnected-(SW2-C-Pad1)" DOGFIGHT "SLIDE_PUSH" "BRAKE_RET" "unconnected-(U2-PadPB9)" "USB_D-" "unconnected-(U2-PadPA7)"
+    "BRAKE_EXT" "unconnected-(U2-PadPC14)" "unconnected-(U2-PadPC15)" "unconnected-(U2-PadPA15)" "USART1_RX" "unconnected-(U2-RESET-PadNRST)" "unconnected-(U2-PadPC13)" MISSILE
+    "unconnected-(U2-Pad5V)" "SLIDE_UP" "unconnected-(U2-PadPA6)" "SLIDE_HALF_UP" "unconnected-(U2-PadPB14)" "PINKY_AFT" "USB_D+" "PINKY_FWD"
+    "unconnected-(U2-PadPB15)" "USART1_TX" "unconnected-(U2-Vbat-PadVBAT)" "SLIDE_DOWN" "unconnected-(U2-PadPA8)" "SLIDE_HALF_DOWN"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
