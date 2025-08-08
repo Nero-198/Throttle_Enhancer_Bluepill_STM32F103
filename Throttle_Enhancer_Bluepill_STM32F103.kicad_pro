@@ -486,7 +486,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "V1",
       "pos_files": "",
       "specctra_dsn": "Throttle_Enhancer_Bluepill_STM32F103.dsn",
       "step": "",
